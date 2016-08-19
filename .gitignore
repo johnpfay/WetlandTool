@@ -1,0 +1,8 @@
+#Files that are available for download on Box
+Data/ToolData/HUC12Lookup.csv
+Data/ToolData/SpeciesOccurrences.csv
+Data/streamCat/*
+Data/SpeciesModels/*
+Data/EEP_030501.gdb/*
+
+#
