@@ -43,7 +43,7 @@ catchmentFC = sys.argv[8]   #r'C:\workspace\GeoWET\Data\EEP_030501.gdb\NHDCatchm
 flowNet = sys.argv[9]       #r'C:\workspace\GeoWET\Data\ToolData\NHD_H_03050102_GDB.gdb\Hydrography\HYDRO_NET'
 
 #Derived inputs
-flowNetFC = os.path.join(os.path.dirname(flowNet),"NHDFlowlines")
+flowNetFC = os.path.join(os.path.dirname(flowNet),"NHDFlowline")
 
 #Output
 projectSWDFile = sys.argv[10]#r'C:\workspace\GeoWET\Scratch\ExampleProject_SWD.csv'
@@ -86,7 +86,7 @@ def getDownstreamGridCodes(gridcode,catchFC,flownet,flownetFC):
     #Get the catchment corresponding to the gridcode
     theCatchLyr = arcpy.MakeFeatureLayer_management(catchFC,"theCatch","GRIDCODE = {}".format(gridcode))
     #Clip the flowine within the catchment and get its lowest point
-    theFlowline = arcpy.Clip_analysis(flowlineFC,theCatchLyr,"in_memory/theFlowline")
+    theFlowline = arcpy.Clip_analysis(flowNetFC,theCatchLyr,"in_memory/theFlowline")
     theFlowpoint = arcpy.FeatureVerticesToPoints_management(theFlowline,"in_memory/thePoint","END")
     #Trace from this point downstream to the end of the HUC8 geometric network
     theTraceLyr = arcpy.TraceGeometricNetwork_management(flownet,"DownStrmLyr",theFlowpoint,"TRACE_DOWNSTREAM")
