@@ -3,6 +3,7 @@ Data/ToolData/HUC12Lookup.csv
 Data/ToolData/SpeciesOccurrences.csv
 Data/streamCat/*
 Data/SpeciesModels/*
+Data/SpeciesModelsX/*
 Data/EEP_030501.gdb/*
 Data/NHD_H_0305_GDB/*
 
